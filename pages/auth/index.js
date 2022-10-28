@@ -10,7 +10,7 @@ export default function Auth() {
         <Container>
                 <Grid container>
                 <Grid item xs={3} />
-                <Grid item xs={3} sx>
+                <Grid item xs={3}>
                     <p>Email</p>
                     <Input />
                 </Grid>
