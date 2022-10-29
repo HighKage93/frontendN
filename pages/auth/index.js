@@ -9,12 +9,12 @@ export default function Auth() {
     return (
         <Container>
                 <Grid container>
-                <Grid item xs={3} />
-                <Grid item xs={3}>
+                <Grid item xs={4} />
+                <Grid item xs={4}>
                     <p>Email</p>
-                    <Input />
+                    <Input fullWidth />
                 </Grid>
-                <Grid item xs={3} />
+                <Grid item xs={4} />
                 </Grid>
                 
         </Container>
