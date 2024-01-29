@@ -4,7 +4,10 @@ import { useRouter } from "next/router"
 export default function Nava(){
     const router = useRouter()
     return (
-        <div className="" style={{maxLength:240}}>
+        <div className="" 
+        // style={{maxLength:240}}
+        
+        >
                 <Grid container>
                 <Grid item xs={6}>
                     <Button

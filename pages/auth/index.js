@@ -3,6 +3,7 @@ import { Container } from "@mui/system";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { increment } from "../../app/slicer";
+import CircleMenu from "../../public/components/circleMenu";
 
 export default function Auth() {
     const count = useSelector((state) => state?.counter?.value)
