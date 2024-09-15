@@ -1,7 +1,7 @@
 import { Grid, Button } from "@mui/material"
 import { useRouter } from "next/router"
 
-export default function Nava(){
+export default function Navbar(){
     const router = useRouter()
     return (
         <div className="" 
