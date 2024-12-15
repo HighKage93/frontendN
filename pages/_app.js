@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from '../public/components/header'
 import Menu from '../public/components/menu'
+// import wallpaper from '../public/icons/wallpaperflare.com_wallpaper.jpg'
 
 function MyApp({ Component, pageProps }) {
   
@@ -32,12 +33,15 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <div
         style={{
-          backgroundColor: "grey"
+          backgroundImage: `url('https://i.pinimg.com/originals/ec/0c/60/ec0c6065a57df10774c81d2385149531.png')`, // Reference the image in the public folder
+          backgroundSize: 'cover', // Make sure the image covers the entire background
+          backgroundPosition: 'center', // Center the background image
+          minHeight: '100vh', // Ensure it takes up the full height of the page
         }}
       >
-      <div className='row'>
+      {/* <div className='row'>
         <Header />
-      </div>
+      </div> */}
       <div className='row'>
         <div className='col-lg-1 col-md-2'>
           <Menu className="mx-5 my-5" />

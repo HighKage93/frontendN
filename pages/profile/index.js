@@ -8,7 +8,7 @@ const Profile = () => {
     return (
         <div
             style={{
-                backgroundColor: "grey",
+                // backgroundColor: "grey",
                 // height: "100vh"
                 // width: "100%"
             }}

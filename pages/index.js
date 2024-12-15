@@ -12,8 +12,8 @@ export default function Home() {
   return (
     
     <div>
-      <Nava />
-      <CircleMenu divisions={divisions} />
+      {/* <Nava />
+      <CircleMenu divisions={divisions} /> */}
     </div>
   )
 }
