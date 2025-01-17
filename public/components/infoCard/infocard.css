@@ -1,0 +1,36 @@
+/* Avatar spinning effect */
+.spinning-avatar {
+    width: 150px;
+    height: 150px;
+    background: #353535;
+    display: block;
+    margin: 20px auto;
+    position: relative;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+    animation: rotationBack 5s ease-in-out infinite forwards;
+    box-shadow: 
+        0px 4px 20px rgba(255, 255, 255, 0.6),
+        0px -4px 20px rgba(255, 255, 255, 0.6),
+        4px 0px 20px rgba(255, 255, 255, 0.6),
+        -4px 0px 20px rgba(255, 255, 255, 0.6);
+}
+
+  
+  .spinning-avatar:hover {
+    animation-play-state: paused;
+    transform: rotate(0deg); /* Pause on hover and set to initial state */
+    box-shadow: 0 4px 10px rgba(128, 128, 128, 0.3);
+  }
+  
+  /* Animation for rotating avatar */
+  @keyframes rotationBack {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+  
