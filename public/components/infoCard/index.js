@@ -1,7 +1,16 @@
+import { useGSAP } from "@gsap/react";
 import { Avatar, Button, Chip, Typography } from "@mui/material";
+import { useRef, useState } from "react";
 import { Briefcase, Download, Inbox, Link, MapPin } from "react-feather";
+import "./infocard.css";
 
 const InfoCard = () => {
+    const handleDownload = () => {
+        const link = document.createElement('a');
+        link.href = '/documents/cv.pdf';
+        link.download = 'cv.pdf';
+        link.click();
+    };
     return (
         <div
             style={{
@@ -28,6 +37,8 @@ const InfoCard = () => {
                 }}
             >
                 <Avatar 
+                    className="spinning-avatar"
+                    src="/icons/kamesamaprofile.jpg"
                     sx={{
                         height: "150px",
                         width: "150px",
@@ -35,6 +46,8 @@ const InfoCard = () => {
                         marginLeft: "25px",
                         marginTop: "25px"
                     }}
+                    // onMouseEnter={() => setHovered(true)}
+                    // onMouseLeave={() => setHovered(false)}
                 />
                 <Typography
                     sx={{
@@ -241,6 +254,7 @@ const InfoCard = () => {
                     }
                 }}
                 endIcon={<Download />}
+                onClick={handleDownload}
             >
                 Download CV
             </Button>

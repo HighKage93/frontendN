@@ -6,10 +6,13 @@ import { Provider } from 'react-redux'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from '../public/components/header'
 import Menu from '../public/components/menu'
+import Home from '.'
+import { useEffect } from 'react'
+import gsap from 'gsap'
 // import wallpaper from '../public/icons/wallpaperflare.com_wallpaper.jpg'
 
 function MyApp({ Component, pageProps }) {
-  
+
   return (
     <Provider store={store} >
     
@@ -32,26 +35,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* <script src="path/to/dist/feather.js" /> */}
       </Head>
-      <div
-        style={{
-          backgroundImage: `url('https://i.pinimg.com/originals/ec/0c/60/ec0c6065a57df10774c81d2385149531.png')`, // Reference the image in the public folder
-          backgroundSize: 'cover', // Make sure the image covers the entire background
-          backgroundPosition: 'center', // Center the background image
-          minHeight: '100vh', // Ensure it takes up the full height of the page
-        }}
-      >
-      {/* <div className='row'>
-        <Header />
-      </div> */}
-      <div className='row'>
-        <div className='col-lg-1 col-md-2'>
-          <Menu className="mx-5 my-5" />
-        </div>
-        <div className='col-lg-10 col-md-8'>
-        <Component {...pageProps} />
-        </div>
-      </div>
-      </div>
+      <Home Component={Component} pageProps={pageProps} />
     </>
     </Provider>
   ) 

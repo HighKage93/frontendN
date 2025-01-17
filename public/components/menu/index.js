@@ -11,7 +11,7 @@ const Menu = () => {
     { key: "profile", route: "/profile", toolTip: "Home", icon: <AlignCenter /> },
     { key: "about", route: "/profile/about", toolTip: "About", icon: <User /> },
     { key: "skills", route: "/profile/skills", toolTip: "Skills", icon: <Code /> },
-    { key: "blogs", route: "/profile/blogs", toolTip: "Blogs", icon: <Monitor /> },
+    { key: "blogs", route: "/profile/blogs", toolTip: "Blogs & Projects", icon: <Monitor /> },
     { key: "contact", route: "/profile/contact", toolTip: "Contact Info", icon: null },
   ];
 
