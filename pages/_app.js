@@ -15,6 +15,11 @@ function MyApp({ Component, pageProps }) {
     
     <>
       <Head>
+        <link 
+          rel="icon"
+          type='image/png'
+          href='/icons/favicon.png/'
+        />
       <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -31,13 +36,14 @@ function MyApp({ Component, pageProps }) {
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* <script src="path/to/dist/feather.js" /> */}
+        <title>Mayur Patankar</title>
       </Head>
       <div
         style={{
           backgroundImage: `url('https://i.pinimg.com/originals/ec/0c/60/ec0c6065a57df10774c81d2385149531.png')`, // Reference the image in the public folder
           backgroundSize: 'cover', // Make sure the image covers the entire background
           backgroundPosition: 'center', // Center the background image
-          minHeight: '100vh', // Ensure it takes up the full height of the page
+          height: '100vh', // Ensure it takes up the full height of the page
         }}
       >
       {/* <div className='row'>

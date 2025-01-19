@@ -344,7 +344,7 @@ const Blogs = () => {
               <div
                 style={{
                   overflow: "auto",
-                  maxHeight: "650px",
+                  maxHeight: "100%",
                 }}
               >
                 {steps[blogActiveStep]?.blog?.paragraph?.map((elem, index) => {
