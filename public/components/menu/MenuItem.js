@@ -17,7 +17,7 @@ const MenuItemNew = (props) => {
         <Tooltip title={props?.data?.toolTip}>
           <Avatar
             sx={{
-              backgroundColor: isSelected ? "#0288d1" : "inherit", // Highlight selected
+              backgroundColor: isSelected ? "#0288d1" : "black", // Highlight selected
               boxShadow: isSelected ? "0px 4px 12px rgba(0, 0, 0, 0.2)" : "none", // Add shadow
               "&:hover": {
                 cursor: "pointer",

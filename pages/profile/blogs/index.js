@@ -10,20 +10,62 @@ import {
   Avatar,
   Box,
   Divider,
+  useMediaQuery,
+  Select,
+  MenuItem,
+  InputLabel,
+  Card,
+  CardHeader,
+  IconButton,
+  CardMedia,
+  CardContent,
+  CardActions,
+  Collapse,
+  styled,
 } from "@mui/material";
 import { useState } from "react";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+const ExpandMore = styled((props) => {
+  const { expand, ...other } = props;
+  return <IconButton {...other} />;
+})(({ theme }) => ({
+  marginLeft: 'auto',
+  transition: theme.transitions.create('transform', {
+    duration: theme.transitions.duration.shortest,
+  }),
+  variants: [
+    {
+      props: ({ expand }) => !expand,
+      style: {
+        transform: 'rotate(0deg)',
+      },
+    },
+    {
+      props: ({ expand }) => !!expand,
+      style: {
+        transform: 'rotate(180deg)',
+      },
+    },
+  ],
+}));
 
 const Blogs = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
   const [tabValue, setTabValue] = useState(0);
   const [blogActiveStep, setBlogActiveStep] = useState(0);
   const [projectctiveStep, setProjectActiveStep] = useState(0);
+  const [expanded, setExpanded] = useState(false);
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
   const steps = [
     {
       label: "Footballers reunion",
       title: "Galácticos' Getaway: A Coastal Reunion in 2050",
       key: "label1",
       time: "4 March 2019",
-      dscription:
+      description:
         "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it",
       blog: {
         paragraph: [
@@ -80,7 +122,7 @@ const Blogs = () => {
         title: "Building a Multi-Page Application with Next.js, TypeScript, MUI, and AWS",
         key: "label1",
         time: "17 January 2025",
-        dscription:
+        description:
           "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it",
         blog: {
           paragraph: [
@@ -101,7 +143,153 @@ const Blogs = () => {
     setProjectActiveStep(index === projectctiveStep ? -1 : index); // Toggle expand/collapse
   };
   return (
-    <div
+    <div>
+      {isMobile ? (
+        <div style={{
+          marginLeft: "25px"
+        }}>
+          <div>
+          <Typography
+        sx={{
+          color: "white",
+          fontSize: "16px",
+          fontFamily: "400",
+        }}
+      >
+        {`"Creativity is just connecting things. When you ask creative people how they did something, they feel guilty because they didn’t really do it—they just saw something."`}
+      </Typography>
+          </div>
+          <Divider
+        sx={{ color: "white", backgroundColor: "white", marginTop: "15px" }}
+      />
+          <div style={{ marginTop: "15px"}}>
+          <InputLabel id="demo-simple-select-label" />
+            <Select
+              onChange={(e) => setTabValue(e.target.value)}
+              value={tabValue}
+              sx={{
+                color: "white",
+              }}
+            >
+              <MenuItem value={0}>Projects</MenuItem>
+              <MenuItem value={1}>Blogs</MenuItem>
+            </Select>
+          </div>
+          
+          <div className="col">
+            {tabValue == 0 ? (
+              projectSteps?.map((elem, index) => {
+                return (
+                  <Card 
+                  key={index}
+                  sx={{ mt: 5 }}
+                  >
+                  <CardHeader
+                    // avatar={
+                    //   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                    //     R
+                    //   </Avatar>
+                    // }
+                    action={
+                      <IconButton aria-label="settings">
+                        {/* <MoreVertIcon /> */}
+                      </IconButton>
+                    }
+                    title={elem?.title}
+                    subheader={elem?.time}
+                  />
+                  <CardMedia
+                    // component="img"
+                    // height="194"
+                    // image="/static/images/cards/paella.jpg"
+                    // alt="Paella dish"
+                  />
+                  <CardContent>
+                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                      {elem?.description}
+                    </Typography>
+                  </CardContent>
+                  <CardActions disableSpacing>
+                    <ExpandMore
+                      expand={expanded}
+                      onClick={handleExpandClick}
+                      aria-expanded={expanded}
+                      aria-label="show more"
+                    >
+                      <ExpandMoreIcon />
+                    </ExpandMore>
+                  </CardActions>
+                  <Collapse in={expanded} timeout="auto" unmountOnExit>
+                    <CardContent>
+                      {elem?.blog?.paragraph.map((ele, index) => (
+                        <Typography sx={{ marginBottom: 2 }} key={index}>
+                          {ele}
+                        </Typography>
+                      ))}
+                    </CardContent>
+                  </Collapse>
+                </Card>
+                )
+              })
+            ) : (
+              steps?.map((elem, index) => {
+                return (
+                  <Card 
+                  key={index}
+                  sx={{ mt: 5 }}
+                  >
+                  <CardHeader
+                    // avatar={
+                    //   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                    //     R
+                    //   </Avatar>
+                    // }
+                    action={
+                      <IconButton aria-label="settings">
+                        {/* <MoreVertIcon /> */}
+                      </IconButton>
+                    }
+                    title={elem?.title}
+                    subheader={elem?.time}
+                  />
+                  <CardMedia
+                    // component="img"
+                    // height="194"
+                    // image="/static/images/cards/paella.jpg"
+                    // alt="Paella dish"
+                  />
+                  <CardContent>
+                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                      {elem?.description}
+                    </Typography>
+                  </CardContent>
+                  <CardActions disableSpacing>
+                    <ExpandMore
+                      expand={expanded}
+                      onClick={handleExpandClick}
+                      aria-expanded={expanded}
+                      aria-label="show more"
+                    >
+                      <ExpandMoreIcon />
+                    </ExpandMore>
+                  </CardActions>
+                  <Collapse in={expanded} timeout="auto" unmountOnExit>
+                    <CardContent>
+                      {elem?.blog?.paragraph.map((ele, index) => (
+                        <Typography sx={{ marginBottom: 2 }} key={index}>
+                          {ele}
+                        </Typography>
+                      ))}
+                    </CardContent>
+                  </Collapse>
+                </Card>
+                )
+              })
+            )}
+          </div>
+        </div>
+      ) : (
+        <div
       style={{
         display: "flex",
         justifyContent: "center",
@@ -366,6 +554,8 @@ const Blogs = () => {
           ) : null}
         </div>
       </div>
+    </div>
+      )}
     </div>
   );
 };

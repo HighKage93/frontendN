@@ -1,8 +1,9 @@
-import { Typography } from "@mui/material";
+import { Modal, Typography, useMediaQuery } from "@mui/material";
 import SkillBox from "../../../public/components/skills/SkillBox";
 import { useEffect, useState } from "react";
 
 const Skills = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
   const [skills] = useState([
     {
       key: "lang",
@@ -47,9 +48,10 @@ const Skills = () => {
     },
   ]);
   const [selected, setSelected] = useState("lang");
-
+  const [open, setOpen] = useState(false);
   const handleSelect = (key) => {
     setSelected(key);
+    setOpen(true);
   };
 
   useEffect(() => {
@@ -126,7 +128,20 @@ const Skills = () => {
           I am striving to never stop learning and improving
         </Typography>
       </div>
-      <div
+      {isMobile ? (
+        <div className="col mt-5">
+        {skills.map((elem) => (
+          <SkillBox
+            key={elem.key} // Key for React rendering
+            data={elem}
+            selected={selected}
+            onClick={() => handleSelect(elem.key)} // Correctly pass handler
+            className="mt-5"
+          />
+        ))}
+        </div>
+      ) : (
+        <div
         style={{
           display: "flex",
           justifyContent: "center",
@@ -143,7 +158,13 @@ const Skills = () => {
           />
         ))}
       </div>
-      <div
+      )}
+      {isMobile ? (
+        <Modal
+          open={open}
+          onClose={() => setOpen(false)}
+        >
+          <div
         style={{
           marginTop: "35px",
           display: "flex",
@@ -188,6 +209,54 @@ const Skills = () => {
             ))}
         </div>
       </div>
+        </Modal>
+      ) : (
+        <div
+        style={{
+          marginTop: "35px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "black", // Black background
+          padding: "20px", // Add padding for spacing
+          borderRadius: "8px", // Optional: Add rounded corners
+        }}
+      >
+        <div style={{ textAlign: "center" }}>
+          {skills
+            ?.find((skill) => skill.key === selected)
+            ?.list.map((item, index) => (
+              <div
+                key={index} // Unique key for each item
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  marginBottom: "10px", // Space between items
+                }}
+              >
+                <div
+                  style={{
+                    height: "10px",
+                    width: "10px",
+                    backgroundColor: "white", // Bullet point color
+                    borderRadius: "50%", // Make it a circle
+                    marginRight: "10px", // Space between bullet and text
+                  }}
+                ></div>
+                <Typography
+                  sx={{
+                    color: "white", // White text
+                    fontSize: "30px", // Adjust font size
+                    fontFamily: "IBM Plex Mono",
+                  }}
+                >
+                  {item}
+                </Typography>
+              </div>
+            ))}
+        </div>
+      </div>
+      )}
     </div>
   );
 };

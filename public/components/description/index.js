@@ -1,11 +1,14 @@
-import { Typography } from "@mui/material";
+/* eslint-disable react/no-unescaped-entities */
+import { Typography, useMediaQuery } from "@mui/material";
 
 const Description = () => {
+    const isMobile = useMediaQuery("(max-width: 768px)");
     return (
         <div
             style={{
                 marginTop: "25px",
-                marginLeft: "35px"
+                marginLeft: "35px",
+                width: "90%"
             }}
         >
             <div>
@@ -22,36 +25,36 @@ const Description = () => {
             </Typography>
             <Typography
                 sx={{
-                    fontSize: "64px",
+                    fontSize: isMobile ? "40px" : "64px",
                     fontWeight: "400",
-                    lineHeight: "72px",
+                    lineHeight: isMobile ? "60px" : "72px",
                     color: "white",
                     fontFamily: "IBM Plex Mono",
-                    marginLeft: "35px"
+                    marginLeft: "15px"
                 }}
             >
                 Hey
             </Typography>
             <Typography
                 sx={{
-                    fontSize: "64px",
+                    fontSize: isMobile ? "40px" : "64px",
                     fontWeight: "400",
-                    lineHeight: "72px",
+                    lineHeight: isMobile ? "60px" : "72px",
                     color: "white",
                     fontFamily: "IBM Plex Mono",
-                    marginLeft: "35px"
+                    marginLeft: "15px"
                 }}
             >
                 I'm Mayur,
             </Typography>
             <Typography
                 sx={{
-                    fontSize: "64px",
+                    fontSize: isMobile ? "40px" : "64px",
                     fontWeight: "400",
-                    lineHeight: "72px",
+                    lineHeight: isMobile ? "60px" : "72px",
                     color: "white",
                     fontFamily: "IBM Plex Mono",
-                    marginLeft: "35px"
+                    marginLeft: "15px"
                 }}
             >
                 Full-Stack Developer

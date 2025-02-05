@@ -3,17 +3,17 @@ import { useEffect, useState } from "react";
 import MenuItemNew from "./MenuItem";
 import { AlignCenter, Code, Monitor, User } from "react-feather";
 
+export const menuConfig = [
+  { key: "profile", route: "/profile", toolTip: "Home", icon: <AlignCenter /> },
+  { key: "about", route: "/profile/about", toolTip: "About", icon: <User /> },
+  { key: "skills", route: "/profile/skills", toolTip: "Skills", icon: <Code /> },
+  { key: "blogs", route: "/profile/blogs", toolTip: "Blogs", icon: <Monitor /> },
+  { key: "contact", route: "/profile/contact", toolTip: "Contact Info", icon: null },
+];
+
 const Menu = () => {
   const router = useRouter(); // Use useRouter hook
   const [selected, setSelected] = useState("");
-
-  const menuConfig = [
-    { key: "profile", route: "/profile", toolTip: "Home", icon: <AlignCenter /> },
-    { key: "about", route: "/profile/about", toolTip: "About", icon: <User /> },
-    { key: "skills", route: "/profile/skills", toolTip: "Skills", icon: <Code /> },
-    { key: "blogs", route: "/profile/blogs", toolTip: "Blogs", icon: <Monitor /> },
-    { key: "contact", route: "/profile/contact", toolTip: "Contact Info", icon: null },
-  ];
 
   // Set selected based on current route
   useEffect(() => {

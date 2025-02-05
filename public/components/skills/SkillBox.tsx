@@ -21,6 +21,7 @@ const SkillBox = (props) => {
         marginLeft: "15px",
         cursor: "pointer",
         border: selected === data.key ? "3px solid blue" : "3px solid green",
+        marginTop: "25px"
       }}
       onClick={onClick} // Correctly handle click event
     >

@@ -16,7 +16,7 @@ const InfoCard = () => {
                 border: "4px solid white",
                 borderRadius: "160px 0px 160px 0px",
                 // height: "520px",
-                width: "100%",
+                width: "90%",
                 boxShadow: "3px 3px 5px",
                 textAlign: "center",
                 margin: "20px"
@@ -175,7 +175,7 @@ const InfoCard = () => {
                                 fontFamily: "IBM Plex Mono"
                             }}
                         >
-                            mayur.patankar.com
+                            mp.iamkamisama.com/profile
                         </Typography>
                     </div>
                     </div>
@@ -188,7 +188,7 @@ const InfoCard = () => {
                     padding: "20px"
                 }}
             >
-                <div className="col-lg-3 col-md-1 col-sm-1">
+                <div className="col-lg-3 col-md-1 col-sm-1 mt-3">
                 <Chip 
                    label="HTML"
                    sx={{
@@ -197,7 +197,7 @@ const InfoCard = () => {
                    }} 
                 />
                 </div>
-                <div className="col-lg-3 col-md-1 col-sm-1">
+                <div className="col-lg-3 col-md-1 col-sm-1  mt-3">
                 <Chip 
                    label="CSS"
                    sx={{
@@ -206,7 +206,7 @@ const InfoCard = () => {
                    }} 
                 />
                 </div>
-                <div className="col-lg-3 col-md-1 col-sm-1">
+                <div className="col-lg-3 col-md-1 col-sm-1  mt-3">
                 <Chip 
                    label="JS"
                    sx={{
@@ -215,7 +215,7 @@ const InfoCard = () => {
                    }} 
                 />
                 </div>
-                <div className="col-lg-3 col-md-1 col-sm-1">
+                <div className="col-lg-3 col-md-1 col-sm-1 mt-3">
                 <Chip 
                    label="REACT"
                    sx={{
